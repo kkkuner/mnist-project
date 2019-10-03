@@ -6,14 +6,25 @@
 
 项目步骤：
 1.创建网络
+
 docker network create mnist_test
+
 2.启动cassandra，并将其与docker连接
+
 docker run --name mnist_cassandra --net=mnist_test -p 9042:9042 -d cassandra:latest
+
 3.创建镜像
+
 docker built -t mnist .
+
 4.运行镜像
+
 docker run -p 4000:2500 --network=mnist_test mnist
+
 5.启动cassandra，并用cql语言查看数据库内容
+
 docker exec -it mnist_cassandra cqlsh
+
 use mnistimages;
+
 select * from images;
