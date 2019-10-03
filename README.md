@@ -5,6 +5,7 @@
 项目工具：docker，cassandra，mnist，tensorflow
 
 项目步骤：
+
 1.创建网络
 
 docker network create mnist_test
